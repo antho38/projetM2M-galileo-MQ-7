@@ -1,0 +1,10 @@
+Group CapteurCO_Chart								(CapteurCO)
+Number CapteurCO_Concentration 	"Concentration CO [%.1f ppm]"	<temperature> (CapteurCO_Chart) { mqtt="<[mosquitto:co:state:default]" }
+Number CapteurCO_Conc_Max 	"Concentration maximun du jour [%.1f ppm]"	<temperature> (CapteurCO_Chart)
+Number CapteurCO_Conc_Min 	"Concentration minimum du jour [%.1f ppm]"	<temperature> (CapteurCO_Chart)
+Number CapteurCO_Chart_Period	"Chart Period"
+DateTime CapteurCO_LastUpdate	"Dernière mise à jour [%1$ta %1$tR]"	<clock>
+
+
+/* NTP binding demo item */
+DateTime		Date			"Date [%1$tA, %1$td.%1$tm.%1$tY]"	<calendar>	{ ntp="Europe/Berlin:de_DE" }
