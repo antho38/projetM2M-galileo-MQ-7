@@ -1,0 +1,17 @@
+sitemap demo label="Projet M2M - Galileo"
+{
+	Frame label="Capteur CO" {
+		Text item=CapteurCO_Concentration {
+			Frame {
+				Text item=CapteurCO_Conc_Max 
+				Text item=CapteurCO_Conc_Min 
+				Text item=CapteurCO_LastUpdate valuecolor=[CapteurCO_LastUpdate>120="orange", CapteurCO_LastUpdate>300="red"]
+			}
+			Frame {
+				Switch item=CapteurCO_Chart_Period label="Données graphiques" mappings=[0="Heure", 1="Jour"]
+				Chart item=CapteurCO_Chart period=h refresh=1 visibility=[CapteurCO_Chart_Period==0, CapteurCO_Chart_Period=="Uninitialized"]
+				Chart item=CapteurCO_Chart period=D refresh=3600 visibility=[CapteurCO_Chart_Period==1]
+			}
+		}
+	}
+}
