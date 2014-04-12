@@ -1,0 +1,65 @@
+var http = require('http');
+var express = require('express');
+var mongoose = require('mongoose');
+var mqtt = require('mqtt');
+var Schema = mongoose.Schema;
+var restify = require('express-restify-mongoose')
+
+//MONGODB
+
+//Connexion a la base de donnée mongoDB localhost:port/nomDeLaCollection
+mongoose.connect("mongodb://localhost:27017/coDB", function(err) {
+    if (err) {
+        throw err;
+    }
+});
+ 
+//Definition du schema
+var Co = new mongoose.Schema({
+    _id: Number,
+    co: Number
+});
+
+var CoModel = mongoose.model('co', Co);
+
+//Pour vider la BD
+//CoModel.remove({}, function (err) {
+//  if (err) { throw err; }
+//  console.log('Base de données remise à 0');
+//});
+ 
+
+//MQTT
+
+//Creation d'un client
+client = mqtt.createClient(1884, 'localhost');
+
+//Connection au topic co
+client.subscribe("co");
+
+//Ecoute sur co pui envoi sur la BD
+var i = 0;
+client.on('message', function(topic, message) {
+    console.log(message);
+    var myCoModel = new CoModel({_id: i++, co: message});
+    myCoModel.save(function(err) {
+        if (err) {
+            throw err;
+        }
+        console.log('Co ajouté à la BD avec succès !');
+    });
+});
+ 
+ 
+var app = express();
+app.configure(function() {
+    app.use(express.bodyParser());
+    app.use(express.methodOverride());
+    restify.serve(app, CoModel);
+});
+ 
+ 
+//Run the server
+http.createServer(app).listen(4242, function() {
+    console.log("Express server listening on port 4242");
+});
