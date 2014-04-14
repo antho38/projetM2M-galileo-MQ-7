@@ -91,6 +91,10 @@ V. Les problèmes rencontrés et les solutions élaborées
   Pour configurer l’interface eth0 de la Galileo, des informations nous ont été fournies ici : [lien](http://air.imag.fr/index.php/SmartCampus2014/Tutoriels#Configuration_de_la_carte_Galileo). Cependant, cela n’a pas fonctionner pour nous.
   Pour parer à ce problème, nous avons utiliser le logiciel Wireshark pour écouter les communication sur l’interface eth du PC. Lorsque la carte démarre, elle envoie une requête de type UDP/DHCP. Cette requête nous à permis de récupérer l’adresse IP de la carte et donc de pouvoir configurer notre interface pour nous connecter en ssh sur la carte.
 
+3. Execution du sketch écrit via l'IDE pour récuperer la valeur sur A0 sur l'OS
+-------------------------------------------------------------------------------
+  Pour tester le capteur MQ-7 et récupérer les valeurs qu'ils renvoyait, nous avons tout d'abord écrit un sketch via l'IDE arduino. Une fois que tout fonctionnait, nous avons voulu executer ce sketch sur l'OS installé sur la carte SD de la galileo. Après plusieurs heures de recherche, nous avons finalement changé d'idée et opté pour un script shell permettant,pare manipulation complexe, de récupérer la valeur de A0.
+
 VI. Conclusion
 ==============
   Ce projet nous a permis de mettre en pratique de nouvelles notions sur les communications entre dispositifs. Nous avons découvert comment recueillir à partir d’une carte microcontroleur Galileo des données provenant d’un capteur. Nous avons aussi eu la possibilité d’utiliser un broker reposant sur le modèle de type publish/subscribe pour gérer les communication entre les dispositifs, ou encore d’utiliser un serveur se basant sur NodeJs pour stocker les valeurs dans une base de donnée. Et pour finir nous avons eu un aperçu de comment envoyer ou récupérer des données de divers dispositifs distants sur un réseau grâce à une interface web OpenHab.
