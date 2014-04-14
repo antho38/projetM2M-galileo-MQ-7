@@ -98,7 +98,7 @@ V. Les problèmes rencontrés et les solutions élaborées
 VI. Conclusion
 ==============
   Ce projet nous a permis de mettre en pratique de nouvelles notions sur les communications entre dispositifs. Nous avons découvert comment recueillir à partir d’une carte microcontroleur Galileo des données provenant d’un capteur. Nous avons aussi eu la possibilité d’utiliser un broker reposant sur le modèle de type publish/subscribe pour gérer les communication entre les dispositifs, ou encore d’utiliser un serveur se basant sur NodeJs pour stocker les valeurs dans une base de donnée. Et pour finir nous avons eu un aperçu de comment envoyer ou récupérer des données de divers dispositifs distants sur un réseau grâce à une interface web OpenHab.
-Nous avons été confronté à la situation d’aujourd’hui en entreprise, qui est non plus de développer ses composants logiciels mais plutôt d’intégrer des composants entre eux. Il y a eu donc peux de code produit, mais en contre partie de nombreuses configurations pour faire communiquer les divers composants logiciels et matériels.
+Nous avons été confronté à la situation d’aujourd’hui en entreprise, qui est non plus de développer ses composants logiciels mais plutôt d’intégrer des composants entre eux. Il y a eu donc peu de code produit, mais en contre partie de nombreuses configurations pour faire communiquer les divers composants logiciels et matériels.
 
 VII. Perspectives possibles à notre développement
 =================================================
