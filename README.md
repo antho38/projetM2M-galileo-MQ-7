@@ -67,6 +67,11 @@ Le capteur MQ-7 est un capteur de monoxyde de carbone (CO).
 ![openHab](http://www.openhab.org/images/openhab-logo-top.png)
 Le logiciel OpenHab permet de réaliser rapidement des interfaces d’applications connectées pour différents supports (PC, tablettes, smartphones)
 
+3. Notre montage
+----------------
+![montage](https://raw.githubusercontent.com/antho38/projetM2M-galileo-MQ-7/master/images/montage.jpg)
+Sur la photo ci dessus, on peut avoir un aperçu de la galileo avec le capteur. Le fil rouge est connecté au port 5V, le vert à la terre (GND) le noir à A0 et le blanc à D0.
+
 IV. Les métriques (sloc, performance ...)
 =========================================
   Durant ce projet peu de lignes de codes ont été écrites, moins de 100 SLOC. En effet seuls des fichiers de configurations on été codés, par exemple pour récupérer les données du capteur sur la carte, ou encore pour permettre la connexion entre le serveur Mongoose, l’application OpenHab et le broker Mosquitto. Du code a aussi été requis pour l’élaboration de l’interface web à partir d’OpenHab.
