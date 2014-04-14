@@ -38,10 +38,9 @@ Le capteur MQ-7 est un capteur de monoxyde de carbone (CO).
     La documentation technique de ce capteur peut être consultée ici : [lien](https://www.sparkfun.com/datasheets/Sensors/Biometric/MQ-7.pdf)
 
 ### 1.4 Autre matériels
-- 1 Carte microSD 16 Go
-- 1 cable usb > microUsb
-- 1 cable ethernet
-
+-  1 Carte microSD 16 Go
+-  1 cable usb > microUsb
+-  1 cable ethernet
 2. Logiciel
 -----------
 ### 2.1 Intel Galileo Arduino SW 1.5.3
@@ -74,8 +73,18 @@ Sur la photo ci dessus, on peut avoir un aperçu de la galileo avec le capteur. 
 
 IV. Les métriques (sloc, performance ...)
 =========================================
-  Durant ce projet peu de lignes de codes ont été écrites, moins de 100 SLOC. En effet seuls des fichiers de configurations on été codés, par exemple pour récupérer les données du capteur sur la carte, ou encore pour permettre la connexion entre le serveur Mongoose, l’application OpenHab et le broker Mosquitto. Du code a aussi été requis pour l’élaboration de l’interface web à partir d’OpenHab.
-  Les valeurs de concentration de gaz Co (unité ppm) sont  recueillies toutes les demi-secondes sur la carte à partir du capteur et envoyées directement sur le broker. Ainsi l’interface web d’OpenHab se rafraîchie dans le même temps pour afficher les valeurs recueillies par le capteur.
+  Durant ce projet peu de lignes de codes ont été écrites, environ 150 LOC. En effet seuls des fichiers de configurations on été codés, par exemple pour récupérer les données du capteur sur la carte, ou encore pour permettre la connexion entre le serveur Mongoose, l’application OpenHab et le broker Mosquitto. Du code a aussi été requis pour l’élaboration de l’interface web à partir d’OpenHab.
+  Estimation du nombre de lignes de code : 
+  -  script shell sur galileo : 10
+  -  script nodeJs / mongoose : ~60
+  -  sketch arduino : 25
+  -  configuration openHab : ~50
+  
+Les valeurs de concentration de gaz Co (unité ppm) sont  recueillies toutes les demi-secondes sur la carte à partir du capteur et envoyées directement sur le broker. Ainsi l’interface web d’OpenHab se rafraîchie dans le même temps pour afficher les valeurs recueillies par le capteur.
+
+Estimation de temps : 
+  -  Actualisation du capteur < 0.5s
+  -  Envoi sur le broker + transfert BD < 1s
 
 V. Les problèmes rencontrés et les solutions élaborées
 ======================================================
